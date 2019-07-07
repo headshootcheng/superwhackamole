@@ -1,0 +1,25 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheets/forgotpw.css">
+    <center>
+            <span style="font-size:60px; top:30px; position: relative;">Forgot Password</span>
+            <br/>
+            <br/>
+            <br/>
+            <% include ./partials/messages %>
+            <br/>
+            <form action="/users/forgotpw" id ="form" method="POST">
+              <div class="forgotpwarea">
+                    Username: 
+                    <input type="text" class="forgotinput" name="username" placeholder="Username" />
+             <br/>
+              </br>
+              <span style="left:25px; position: relative;">Email:</span>
+              <input style="left:25px; position: relative;" type="text" class="forgotinput" name="email" placeholder="Email" /><br/>
+              </div>
+            </br>
+              <input type="submit" class="forgotsubmit" value="Submit" onclick="post()"></button></br>
+              
+            </form> 
+            <a href="/users/login"><button class="backlogin">Back</button></br></a>
+     </center>

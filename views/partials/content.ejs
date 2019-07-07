@@ -1,0 +1,246 @@
+<link rel="stylesheet" type="text/css" href="stylesheets/content.css">
+
+
+<% if (dashboardpage_msg ==''){%>
+<center>
+    <div class="homearea">
+        Welcome! <%=user_msg%>! </br>
+        <img src="images/title.jpg" style="height:600px;width:800px">
+    </div>
+</center>
+<%}%>
+
+
+<% if (dashboardpage_msg =='profile'){%>
+<center>
+    <h1 style="font-size:60px"><%=user_msg%>'s Profile</h1></br>
+    <div class="profilearea">
+        <table>
+            <tr>
+                <td class="type">Username</td>
+                <td class="data"> <%=user_msg%></td>
+            </tr>
+            <tr>
+                <td class="type">Email</td>
+                <td class="data">
+                    <div id="emailarea"><span id="email"><%=email_msg%></span> <span class="edit"
+                            onclick="editprofileemail()"><i class="glyphicon glyphicon-pencil"></i></span></div>
+                </td>
+
+            </tr>
+            <tr>
+                <td class="type">Icon</td>
+                <td class="data">
+                    <div id="iconarea"><img src=<%=icon_msg%> class="iconview"> <span class="edit"
+                            onclick="editprofileicon()"><i class="glyphicon glyphicon-pencil"></i> </span></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</center>
+<%}%>
+
+
+    <% if (dashboardpage_msg =='resetpw'){%>
+<center>
+    <h1 style="font-size:60px">Reset Password</h1>
+    <div style="text-align: left ;font-size:20px;"><% include ./messages %> </div>
+    <div class="resetarea">
+        <form action="/users/resetpw" id="form" method="POST">
+            Your password:
+            <input type="password" class="inputbox" name="password" id="password" placeholder="Your Password"
+                oninput="InvalidMsg1(this);" oninvalid="InvalidMsg1(this);" required />
+            </br></br>
+            New password:
+            <input type="password" class="inputbox" name="newpassword1" id="newpassword1" placeholder="New Password"
+                oninput="InvalidMsg1(this);" oninvalid="InvalidMsg1(this);" required />
+            </br></br>
+            <div style="padding-right:80px">
+                Confirmed password:
+                <input type="password" class="inputbox" name="newpassword2" id="newpassword2"
+                    placeholder="Enter new Password again" oninput="InvalidMsg2(this);" oninvalid="InvalidMsg2(this);"
+                    required /></div>
+            </br>
+            <input type="submit" class="submitpw" value="Submit" onclick="post()"></button></br>
+        </form>
+    </div>
+</center>
+<%}%>
+
+<% if (dashboardpage_msg =='game') {%>
+
+<audio id="backgroundmusic">
+    <source src="music/background.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="bomb">
+    <source src="music/bomb.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="laugh">
+    <source src="music/laugh.mp3" type="audio/mpeg">
+</audio>
+
+<div class="gamedata" id="gamedata">
+    <div class="gameleft">
+        Score:<div class="score" name="score" id="score">0</div>
+        </br>
+        Time:<div class="time" name="time" id="time">60</div>
+        </br>
+        Highest Score: <div class="score" name="highestscore" id="highestscore"><%=score_msg%></div>
+        </br>
+        <button class="gamestart" onclick="startfunction()" id="gamestart">Start</button>
+        </br>
+        <button class="gamereset" onclick="resetfunction()" id="gamereset">Reset</button>
+    </div>
+</div>
+</br>
+</br>
+
+<div class="gamearea" id="gamearea">
+    <div class="gameright">
+        </br>
+        </br>
+        </br>
+        <div id="gameblocks" class="gameblocks">
+            <div id="area1">
+                <div id="block1" onclick="molefunction(area1)" class="block"><img src="images/blackmole.png"
+                        style="width:200px;height:200px"></div>
+            </div>
+            <div id="area2">
+                <div id="block2" onclick="molefunction(area2)" class="block"><img src="images/blackmole.png"
+                        style="width:200px;height:200px"></div>
+            </div>
+            <div id="area3">
+                <div id="block3" onclick="molefunction(area3)" class="block"><img src="images/blackmole.png"
+                        style="width:200px;height:200px"></div>
+            </div>
+            <div id="area4">
+                <div id="block4" onclick="molefunction(area4)" class="block"><img src="images/blackmole.png"
+                        style="width:200px;height:200px"></div>
+            </div>
+            <div id="area5">
+                <div id="block5" onclick="molefunction(area5)" class="block"><img src="images/blackmole.png"
+                        style="width:200px;height:200px"></div>
+            </div>
+            <div id="area6">
+                <div id="block6" onclick="molefunction(area6)" class="block"><img src="images/blackmole.png"
+                        style="width:200px;height:200px"></div>
+            </div>
+            <div id="area7">
+                <div id="block7" onclick="molefunction(area7)" class="block"><img src="images/blackmole.png"
+                        style="width:200px;height:200px"></div>
+            </div>
+            <div id="area8">
+                <div id="block8" onclick="molefunction(area8)" class="block"><img src="images/blackmole.png"
+                        style="width:200px;height:200px"></div>
+            </div>
+            <div id="area9">
+                <div id="block9" onclick="molefunction(area9)" class="block"><img src="images/blackmole.png"
+                        style="width:200px;height:200px"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%}%>
+
+<%if (dashboardpage_msg=='rank'){%>
+    <center>
+        <div class="rankarea">
+                <table>
+                        <tr>
+                            <td class="number">Rank</td>
+                            <td class="usericon">Icon</td>
+                            <td class="username">Username</td>
+                            <td class="userscore">Score</td>
+                        </tr>
+                        <tr>
+                            <td class="number"><i class="fa fa-trophy" ></i>&emsp;<span style="right:27px; position: relative;">1</span></td>
+                            <td class="usericon"><img src=<%=number1_icon_msg%> class="iconarea"></td>
+                            <td class="username"><%=number1_username_msg%></td>
+                            <td class="userscore"><%=number1_score_msg%></td>
+                        </tr>
+                        <tr>
+                            <td class="number">2</td>
+                            <td class="usericon"><img src=<%=number2_icon_msg%> class="iconarea"></td>
+                            <td class="username"><%=number2_username_msg%></td>
+                            <td class="userscore"><%=number2_score_msg%></td>
+                        </tr>
+                        <tr>
+                            <td class="number">3</td>
+                            <td class="usericon"><img src=<%=number3_icon_msg%> class="iconarea"></td>
+                            <td class="username"><%=number3_username_msg%></td>
+                            <td class="userscore"><%=number3_score_msg%></td>
+                        </tr>
+                        <tr>
+                            <td class="number">4</td>
+                            <td class="usericon"><img src=<%=number4_icon_msg%> class="iconarea"></td>
+                            <td class="username"><%=number4_username_msg%></td>
+                            <td class="userscore"><%=number4_score_msg%></td>
+                        </tr>
+                        <tr>
+                            <td class="number">5</td>
+                            <td class="usericon"><img src=<%=number5_icon_msg%> class="iconarea"></td>
+                            <td class="username"><%=number5_username_msg%></td>
+                            <td class="userscore"><%=number5_score_msg%></td>
+                        </tr>
+                        <tr>
+                            <td class="number">6</td>
+                            <td class="usericon"><img src=<%=number6_icon_msg%> class="iconarea"></td>
+                            <td class="username"><%=number6_username_msg%></td>
+                            <td class="userscore"><%=number6_score_msg%></td>
+                        </tr>
+                        <tr>
+                            <td class="number">7</td>
+                            <td class="usericon"><img src=<%=number7_icon_msg%> class="iconarea"></td>
+                            <td class="username"><%=number7_username_msg%></td>
+                            <td class="userscore"><%=number7_score_msg%></td>
+                        </tr>
+                        <tr>
+                            <td class="number">8</td>
+                            <td class="usericon"><img src=<%=number8_icon_msg%> class="iconarea"></td>
+                            <td class="username"><%=number8_username_msg%></td>
+                            <td class="userscore"><%=number8_score_msg%></td>
+                        </tr>
+                        <tr>
+                            <td class="number">9</td>
+                            <td class="usericon"><img src=<%=number9_icon_msg%> class="iconarea"></td>
+                            <td class="username"><%=number9_username_msg%></td>
+                            <td class="userscore"><%=number9_score_msg%></td>
+                        </tr>
+                        <tr>
+                            <td class="number">10</td>
+                            <td class="usericon"><img src=<%=number10_icon_msg%> class="iconarea"></td>
+                            <td class="username"><%=number10_username_msg%></td>
+                            <td class="userscore"><%=number10_score_msg%></td>
+                        </tr>
+                    </table>
+
+        </div>
+        
+    </center>
+<%}%>
+
+<% if (dashboardpage_msg =='contact'){%>
+<center>
+    <h1 style="font-size:60px">Contact</h1>
+    <div class="contactarea">
+        <table>
+            <tr>
+                <td class="type"><i class="fa fa-envelope"></i>Email</td>
+                <td class="data">petercheng7788@gmail.com</td>
+            </tr>
+            <tr>
+                <td class="type"><i class="fa fa-whatsapp"></i>Whatsapp</td>
+                <td class="data">66042244</td>
+            </tr>
+        </table>
+        </br>
+        Thanks for your support! <%=user_msg%> !
+    </div>
+</center>
+
+
+
+<%}%>

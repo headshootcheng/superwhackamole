@@ -1,0 +1,207 @@
+.homearea{
+  font-size: 60px;
+}
+.profilearea{
+  font-size: 30px;
+}
+ .profilearea table{
+padding-top:20px;
+  height:70%;
+  width:50%;
+  font-size: 30px;  
+}
+
+.type{
+      width:30%;  
+    }
+  
+  .data{
+    width:70%;
+  }
+  
+
+.profilearea table,.profilearea th,.profilearea td{
+border: 2px solid black;
+text-align: center;
+}
+
+.edit:hover{
+ color:red;
+}
+
+.submitprofile,.cancelprofile {
+  border-radius: 30px;
+  background-color: transparent;
+  border: 2px solid black;
+  width: 200px;
+  height: 50px;
+  color: black;
+
+}
+
+.submitprofile:hover {
+  background-color: orange;
+  color: white;
+}
+
+.cancelprofile:hover {
+  background-color: red;
+  color: black;
+}
+
+.inputprofile{
+border:2px solid black;
+background-color:aquamarine;
+width:450px;
+}
+
+.inputprofile:invalid {
+  background-color: red;
+}
+
+.iconview{
+height: 100px;
+width: 100px;
+}
+.resetarea{
+font-size:30px;
+color:grey;
+}
+.inputbox {
+  border-radius: 30px;
+  background-color: aquamarine;
+  border: 2px solid grey;
+  width:500px;
+  height: 80px;
+}
+
+.inputbox:invalid {
+  background-color: red;
+}
+
+.submitpw {
+  border-radius: 30px;
+  background-color: transparent;
+  border: 2px solid black;
+  width: 300px;
+  height: 80px;
+  color: black;
+
+}
+
+.submitpw:hover {
+  background-color: orange;
+  color: white;
+}
+
+
+.gamedata {
+  height: 100%;
+  width: 20%;
+  font-size: 40px;
+  float: left;
+}
+
+.gameleft {
+  left: 150px;
+  position: relative;
+}
+
+.score,
+.time {
+  background-color: yellow;
+  color: black;
+  border: 2px solid black;
+  border-radius: 30px;
+  width: 150px;
+  height: 75px;
+  text-align: center;
+}
+
+.gamestart,
+.gamereset {
+  border-radius: 30px;
+  background-color: transparent;
+  border: 2px solid black;
+  width: 175px;
+  height: 75px;
+  color: black;
+}
+
+.gamestart:hover,
+.gamereset:hover {
+  background-color: orange;
+  color: white;
+}
+
+.gamearea {
+  height: 100%;
+  width: 80%;
+  float: right;
+}
+
+.gameright {
+  right: 150px;
+  position: absolute;
+}
+
+.gameblocks {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 600px;
+  height: 600px;
+  cursor: url('../images/newhammer.png'),auto;
+}
+
+.block {
+  background-color: transparent;
+  font-size: 30px;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+}
+
+.rankarea{
+  font-size: 30px;
+}
+ .rankarea table{
+  top:20px;
+  position: relative;
+  height:90%;
+  width:80%;
+  font-size: 30px;  
+}
+
+.number{
+      width:20%;  
+    }
+.usericon{
+  width:30%
+}
+  .username{
+    width:40%;
+  }
+.userscore{
+  width:10%;
+}
+  
+
+.rankarea table,.rankarea th,.rankarea td{
+border: 2px solid black;
+text-align: center;
+}
+
+
+.contactarea{
+  font-size:30px;
+  color:grey;
+}
+.contactarea table{
+  font-size:30px;
+  height: 400px;
+  width:600px;
+}
+.contactarea table,.contactarea th,.contactarea td{
+  border: 2px solid black;
+  text-align: center;
+  }

@@ -1,0 +1,38 @@
+body {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+.resetarea {
+    font-size: 20px;
+    color: grey;
+}
+
+.inputbox {
+    border-radius: 30px;
+    background-color: aquamarine;
+    border: 2px solid black;
+    width: 500px;
+    height: 50px;
+}
+
+.inputbox:invalid {
+    background-color: red;
+}
+
+.submitpw {
+    border-radius: 30px;
+    background-color: transparent;
+    border: 2px solid black;
+    width: 300px;
+    height: 60px;
+    color: black;
+
+}
+
+.submitpw:hover {
+    background-color: orange;
+    color: white;
+}

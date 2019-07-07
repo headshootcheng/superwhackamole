@@ -1,0 +1,102 @@
+body {
+    font-family: 'Titillium Web';
+   font-style: normal;
+   font-weight: 300;
+   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+ }   
+
+         .errorarea{
+           font-size: 80px;
+         }
+         .loginbutton {
+          border-radius: 30px;
+          background-color: aquamarine;
+          border: 2px solid black;
+          width: 300px;
+          height: 140px;
+          color: black;
+        
+        }
+        
+        .loginbutton:hover {
+          background-color: orange;
+          color: white;
+        }
+         .sidenav {
+           height: 100%;
+           width: 0;
+           position: fixed;
+           top: 0;
+           left: 0;
+           background-color:black;
+           overflow: hidden;
+           transition: 0.5s;
+           padding-top: 60px;
+         }
+         .dropdown {
+          display: none;
+          background-color: black;
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+         .sidenav a,.dropdown a{
+          text-decoration: none;
+          text-align: left;
+         }
+
+         .menuitem ,.dropdownitem,.user{
+           padding: 20px 0;
+           font-size: 25px;
+           color: white;
+           display: block;
+           transition: 0.3s;
+           width: 100%;
+         }
+
+         .menuitem:hover ,.dropdownitem:hover,.user:hover{
+           color: black;
+           background-color:white;
+         }
+         .user:hover .dropdown{display:block;}
+
+         .menuitem:active,.dropdownitem:active{
+          background-color: green;
+         }
+
+         .logout{
+          position: absolute;
+          padding: 20px 0;
+          width:100%;
+          bottom:0px;
+          font-size: 25px;
+          color: white;
+          display: block;
+          transition: 0.3s;
+         }
+        
+         .logout:hover {
+          color: black;
+          background-color:white;
+        }
+
+         .topbar{
+             background-color:rgb(95, 95, 194);
+             color:white;
+             height:80px;
+             font-size:30px;
+             padding: 20px; 
+         }
+
+         .iconarea{
+           height :60px;
+           width: 60px;
+           border-radius: 50%;
+         }
+         #main{
+            transition: margin-left .5s;
+            width:100%;
+            height:100%;
+         }
+        
+         
+ 

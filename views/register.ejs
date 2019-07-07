@@ -1,0 +1,48 @@
+
+<body>
+    <div class="register-left"></div>
+    <div class="register-right">
+        <h1>Sign Up</h1>
+        Please fill in this form to create an account !!!</br>
+        <form action="/users/register" method="post">
+            <div class="signup">
+                <hr />
+                <% include ./partials/messages %>
+                Username:</br>
+                <div class="required">
+                    <input type="name" name="username" id="username" class="inputbox" placeholder="Your Username"
+                        pattern="^.{1,10}$" oninvalid="InvalidMsg1(this);" oninput="InvalidMsg1(this);"  value="<%=typeof name!='undefined'? username:''%>" required/>
+                </div> </br>
+               Email:</br>
+                <div class="required">
+                    <input type="text" name="email" id="email" class="inputbox" placeholder="Your Email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$"
+                        oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);"  value="<%=typeof text!='undefined' ? email:'' %>" required/>
+                </div></br>
+
+                Password:</br>
+                <div class="required">
+                    <input type="password" id="password1" name="password1" class="inputbox" placeholder="Your Password"
+                        pattern="^.{1,10}$" oninvalid="InvalidMsg3(this);" oninput="InvalidMsg3(this);" required/>
+                </div>
+                </br>
+             
+   Repeat Password:</br>
+                <div class="required">
+                    <input type="password" id="password2" name="password2" class="inputbox"
+                        placeholder="Repeat Your Password" pattern="^.{1,10}$" oninvalid="InvalidMsg4(this);"
+                        oninput="InvalidMsg4(this);" required/>
+                </div>
+            </br>
+        </br>
+                
+                <input type="submit" class="submit" value="Sign Up"></button></br>
+            </div>
+        </form>
+        <a href="/users/login"><button class="backlogin">Back</button></br></a>
+    </div>
+
+
+
+    <script src="javascripts/signup.js">
+      </script>
+</body>

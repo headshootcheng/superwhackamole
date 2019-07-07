@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="stylesheets/resetpw.css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
+
+<center>
+        <h1 style="font-size:60px">Reset Password</h1>
+</br>
+        <div class="resetarea">
+            <form action="/users/resetforgotpw" id="form" method="POST">
+                New password:
+                <input type="password" class="inputbox" name="newpassword1" id="newpassword1" placeholder="New Password"
+                    oninput="InvalidMsg1(this);" oninvalid="InvalidMsg1(this);" required />
+                </br></br>
+                <div style="padding-right:60px">
+                    Confirmed password:
+                    <input type="password" class="inputbox" name="newpassword2" id="newpassword2"
+                        placeholder="Enter new Password again" oninput="InvalidMsg2(this);" oninvalid="InvalidMsg2(this);"
+                        required /></div>
+                </br>
+                <input type="submit" class="submitpw" value="Submit" onclick="post()"></button></br>
+            </form>
+               
+        </div>
+    </center>
+
+    <script src="javascripts/resetpw.js">

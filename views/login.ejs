@@ -1,0 +1,52 @@
+ <div class="login-left">
+        </br>
+        </br>
+        <center>
+            <h1>Login</h1>
+        </center>
+        <% include ./partials/messages %>   
+        </br>
+        <form action="/users/login" id ="form" method="POST">
+            <div class="sign-in">
+                <img src="images/title.jpg"></br>
+                </br>
+                   
+                <span style="color:grey">Username: </span>
+                <input type="text" class="inputbox" name="username" placeholder="Username" oninput="InvalidMsg1(this);"
+                    oninvalid="InvalidMsg1(this);"  required />
+                </br>
+                </br>
+                <span style="color:grey">Password: </span>
+                <input type="password" class="inputbox" name="password" placeholder="Password"
+                    oninput="InvalidMsg2(this);" oninvalid="InvalidMsg2(this);" required />
+                </br>
+                </br>
+                <input type="submit" class="submit" value="Sign in" onclick="post()"></button></br>
+                </br>
+            </div>
+        </form>
+        <center><a href="/users/forgotpw"><span style="color:blue">Forgot Password?</span></a></center>
+    </div>
+
+<div class="login-right">   
+        </br>
+        </br>
+        </br>
+        <h1>New memeber?</h1>
+        sign up and enjoy the game!!!!!!!!
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        <a href="/users/register"><button class="signupbutton">Sign up</button></a>
+    </div>
+
+    <script src="javascripts/login.js">
+       
+    </script>

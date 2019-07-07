@@ -1,0 +1,92 @@
+.login-left {
+    background-color: white;
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
+.login-right {
+    background-image: url(images/gamelogin.jpg);
+    width: 30%;
+    height: 100%;
+    float: right;
+    text-align: center;
+    color: rgb(63, 8, 77);
+}
+
+.sign-in {
+    text-align: center;
+}
+
+.inputbox {
+    border-radius: 30px;
+    background-color: aquamarine;
+    border: 2px solid grey;
+    width: 250px;
+    height: 30px;
+}
+
+.inputbox:invalid {
+    background-color: red;
+}
+
+.submit,.backlogin {
+    border-radius: 30px;
+    background-color: transparent;
+    border: 2px solid black;
+    width: 100px;
+    height: 30px;
+    color: black;
+
+}
+
+.submit:hover {
+    background-color: orange;
+    color: white;
+}
+
+.backlogin:hover {
+    background-color:red;
+    color: white;
+}
+
+.signupbutton{
+    background-color: transparent;
+    border-radius: 30px;
+    border: 2px solid black;
+    width: 150px;
+    height: 60px;
+    color: black;
+    transition-duration: 0.4s;
+}
+
+.signupbutton:hover {
+    background-color: black;
+    color: white;
+}
+
+.register-left {
+    background-image: url(images/signup.jpg);
+    float: left;
+    width: 60%;
+    height: 100%;
+    -webkit-filter: opacity(40%);
+    filter: brightness(0.5) sepia(1) hue-rotate(-70deg) saturate(5) opacity(60%);
+
+}
+
+.register-right {
+    float: right;
+    width: 40%;
+    height: 100%;
+}
+
+.signup {
+    color: grey;
+}
+
+.required:after {
+    content: '*';
+    color: red;
+}
+
