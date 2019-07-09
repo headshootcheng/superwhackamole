@@ -10,7 +10,7 @@ let multer = require('multer');
 let path = require('path');
 let fs=require('fs');
 let ejs=require('ejs')
-
+let {ensureAuthenticated,forwardAuthenticated}=require('../data/auth');
 
 let insertaccount = `INSERT INTO account(username,email,password) VALUES (?,?,?)`
 let checkusername = `SELECT * FROM account WHERE username=?`
@@ -175,10 +175,59 @@ router.post('/register', function (req, res, next) {
 
 
 
-let user_info;
-let email_info;
-let icon_info;
+
+
+
+router.post('/login', function (req, res, next) {
+  user_info = req.body.username;
+
+  
+
+  passport.authenticate('login', {
+    successRedirect: '/users/dashboard',
+    failureRedirect: '/users/login',
+    successFlash: true,
+    failureFlash: true
+  })(req, res, next);
+});
+
+
+//Set Storage Engine
+let storage = multer.diskStorage({
+  destination: './public/images/icon/',
+  filename: function (req, file, cb) {
+    cb(null, user_info + '.jpg');
+  }
+});
+
+let upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1000000
+  },
+  fileFilter: function (req, file, cb) {
+    checkfiletype(file, cb);
+  }
+}).single('usericon');
+
+function checkfiletype(file, cb) {
+  let filetypes = /jpeg|jpg|png/;
+  let extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  let mimetype = filetypes.test(file.mimetype);
+  if (mimetype && extname) {
+    return cb(null, true);
+  } else {
+    return cb();
+  }
+}
+
+router.get('/dashboard', ensureAuthenticated,function (req, res, next) {
+ 
+  //Dashboard
+let user_info=req.user.username;
+let email_info=req.user.email;
 let score_info;
+let icon_info
 let number1_info_username;
 let number1_info_icon;
 let number1_info_score;
@@ -210,8 +259,8 @@ let number10_info_username;
 let number10_info_icon;
 let number10_info_score;
 
-router.post('/login', function (req, res, next) {
-  user_info = req.body.username;
+
+
 
   User.query(checkusername, [user_info], function (err, result) {
     email_info = result[0].email;
@@ -397,55 +446,6 @@ router.post('/login', function (req, res, next) {
     }
 
   })
-
-  passport.authenticate('login', {
-    successRedirect: '/users/dashboard',
-    failureRedirect: '/users/login',
-    successFlash: true,
-    failureFlash: true
-  })(req, res, next);
-});
-
-
-//Set Storage Engine
-let storage = multer.diskStorage({
-  destination: './public/images/icon/',
-  filename: function (req, file, cb) {
-    cb(null, user_info + '.jpg');
-  }
-});
-
-let upload = multer({
-  storage: storage,
-  limits: {
-    fileSize: 1000000
-  },
-  fileFilter: function (req, file, cb) {
-    checkfiletype(file, cb);
-  }
-}).single('usericon');
-
-function checkfiletype(file, cb) {
-  let filetypes = /jpeg|jpg|png/;
-  let extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  let mimetype = filetypes.test(file.mimetype);
-  if (mimetype && extname) {
-    return cb(null, true);
-  } else {
-    return cb();
-  }
-}
-
-router.get('/dashboard', function (req, res, next) {
-  //Error Page
-  if (user_info == undefined) {
-    res.render('error', {
-      title: 'Error'
-    });
-  }
-
-  //Dashboard
-  else {
     var params = url.parse(req.url, true).query;
     //Home
     if (!params.act) {
@@ -538,7 +538,7 @@ router.get('/dashboard', function (req, res, next) {
     }
 
 
-  }
+  
 
 
 });
