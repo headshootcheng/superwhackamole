@@ -46,7 +46,7 @@
     <h1 style="font-size:60px">Reset Password</h1>
     <div style="text-align: left ;font-size:20px;"><% include ./messages %> </div>
     <div class="resetarea">
-        <form action="/users/resetpw" id="form" method="POST">
+        <form action="/resetpw" id="form" method="POST">
             Your password:
             <input type="password" class="inputbox" name="password" id="password" placeholder="Your Password"
                 oninput="InvalidMsg1(this);" oninvalid="InvalidMsg1(this);" required />

@@ -40,12 +40,12 @@ function InvalidMsg3(textbox) {
 function editprofileemail(){
   var previous=email.innerHTML;
 
-    emailarea.innerHTML='  <form action="/users/email" method="post"><input class="inputprofile" name="email"   oninput="InvalidMsg3(this);" oninvalid="InvalidMsg2(this);" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$" value='+previous+'></br></br>  <input type="submit" class="submitprofile" value="Update"></button></form>'
+    emailarea.innerHTML='  <form action="/email" method="post"><input class="inputprofile" name="email"   oninput="InvalidMsg3(this);" oninvalid="InvalidMsg2(this);" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value='+previous+'></br></br>  <input type="submit" class="submitprofile" value="Update"></button></form>'
      
 }
 
 function editprofileicon(){
-  iconarea.innerHTML= '<form action="/users/icon" method="post" enctype="multipart/form-data"> <div><center><div onclick="selecticon()" class="submitprofile">Select</div></center><input name="usericon"id="files" style="visibility:hidden" type="file" onchange="showiconname(this.id)"></div><span id="iconname"></span></br>  <input type="submit" class="submitprofile" value="Upload"></form><a href="/users/dashboard?act=profile"><button class="cancelprofile">Cancel</button></a>'
+  iconarea.innerHTML= '<form action="/icon" method="post" enctype="multipart/form-data"> <div><center><div onclick="selecticon()" class="submitprofile">Select</div></center><input name="usericon"id="files" style="visibility:hidden" type="file" onchange="showiconname(this.id)"></div><span id="iconname"></span></br>  <input type="submit" class="submitprofile" value="Upload"></form><a href="/users/dashboard?act=profile"><button class="cancelprofile">Cancel</button></a>'
 }
   
 function selecticon(){
@@ -179,7 +179,7 @@ let highestscore=high.innerHTML;
         function save(){
          let save =document.createElement('form');
          let playerdata=document.createElement('input');
-         save.action="/users/game";
+         save.action="/game";
          save.method="post";
          save.style.display='none';
          playerdata.name='highestscore';

@@ -32,15 +32,16 @@ let passport = function (passport) {
 
     passport.serializeUser(
         function (user, done) {
-            done(null, user[0].id);
+            done(null, user[0].username);
         });
 
     passport.deserializeUser(
-        function (id, done) {
-            let checkid = `SELECT * FROM account WHERE id=?`
-            User.query(checkid, [id], function (err, result) {
-                done(err, result[0]);
+        function (username, done) {
+            let checkaccount = `SELECT * FROM account WHERE username=?`
+            User.query(checkaccount, [username], function (err, result) {
+                done(err, result[0]);            
             });
+            
         });
 
 }
